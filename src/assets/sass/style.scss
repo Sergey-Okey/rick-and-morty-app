@@ -1,51 +1,46 @@
 .App {
 	font-family: Arial, sans-serif;
-	text-align: center;
+	margin: 0 auto;
+	padding: 20px;
 
 	h1 {
-		margin-top: 20px;
+		text-align: center;
 	}
 
 	.filters {
 		margin-bottom: 20px;
+		text-align: center;
 
-		input {
+		input[type="text"] {
 			padding: 8px;
-			border-radius: 4px;
-			border: 1px solid #ccc;
-			width: 200px;
+			font-size: 16px;
+			width: 100%;
+			max-width: 300px;
 		}
 	}
 
 	.character-list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 20px;
 
 		.character-card {
-			margin: 10px;
-			padding: 10px;
-			border: 1px solid #ddd;
-			border-radius: 5px;
-			width: 200px;
-			background-color: #f9f9f9;
-
-			img {
-				width: 100%;
-				border-radius: 5px 5px 0 0;
-			}
+			background-color: #f0f0f0;
+			padding: 20px;
+			border-radius: 8px;
 
 			h2 {
-				margin: 10px 0;
+				margin-top: 0;
 			}
 
 			button {
 				background-color: #007bff;
 				color: #fff;
+				padding: 10px 20px;
 				border: none;
-				padding: 8px 16px;
 				border-radius: 4px;
 				cursor: pointer;
+				transition: background-color 0.3s ease;
 
 				&:hover {
 					background-color: #0056b3;
@@ -55,23 +50,27 @@
 	}
 
 	.pagination {
+		overflow-x: auto; // добавим горизонтальную прокрутку
+		white-space: nowrap; // чтобы кнопки были в одной строке
+		text-align: center;
 		margin-top: 20px;
 
 		button {
 			background-color: #007bff;
 			color: #fff;
+			padding: 10px 15px;
 			border: none;
-			padding: 8px 16px;
 			border-radius: 4px;
 			cursor: pointer;
-			margin: 0 5px;
+			margin: 0 3px;
+			transition: background-color 0.3s ease;
 
 			&:hover {
 				background-color: #0056b3;
 			}
 
 			&:disabled {
-				background-color: #ccc;
+				opacity: 0.5;
 				cursor: not-allowed;
 			}
 		}
@@ -90,14 +89,29 @@
 
 		.modal-content {
 			background-color: #fff;
-			border-radius: 5px;
 			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+			h2 {
+				margin-top: 0;
+			}
+
+			img {
+				max-width: 100%;
+				border-radius: 8px;
+				margin-bottom: 10px;
+			}
+
+			p {
+				margin: 0;
+			}
 
 			button {
 				background-color: #007bff;
 				color: #fff;
+				padding: 10px 20px;
 				border: none;
-				padding: 8px 16px;
 				border-radius: 4px;
 				cursor: pointer;
 

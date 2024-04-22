@@ -1,13 +1,13 @@
-import './assets/css/style.css'
+import './assets/css/style.css';
 import React, { useState, useEffect } from 'react';
 
-
-function App() {
+export default function App() {
   const [characters, setCharacters] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     fetchCharacters();
@@ -22,6 +22,7 @@ function App() {
       }
       const data = await response.json();
       setCharacters(data.results);
+      setTotalPages(data.info.pages);
       setErrorMessage('');
       console.log('Персонажи успешно загружены:', data.results);
     } catch (error) {
@@ -54,7 +55,13 @@ function App() {
   };
 
   const handlePrevPage = () => {
-    setPage(page - 1);
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+
+  const handlePageChange = newPage => {
+    setPage(newPage);
   };
 
   const handleFilterChange = event => {
@@ -78,8 +85,9 @@ function App() {
         ))}
       </div>
       <div className="pagination">
-        <button onClick={handlePrevPage} disabled={page === 1}>Назад</button>
-        <button onClick={handleNextPage}>Вперед</button>
+        {[...Array(totalPages).keys()].map(num => (
+          <button key={num + 1} onClick={() => handlePageChange(num + 1)}>{num + 1}</button>
+        ))}
       </div>
       {selectedCharacter && (
         <div className="modal">
@@ -95,5 +103,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
