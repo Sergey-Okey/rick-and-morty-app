@@ -2,123 +2,92 @@
 	font-family: Arial, sans-serif;
 	margin: 0 auto;
 	padding: 20px;
+	max-width: 800px;
 
 	h1 {
-		text-align: center;
+		color: #333;
 	}
 
 	.filters {
 		margin-bottom: 20px;
-		text-align: center;
 
 		input[type="text"] {
 			padding: 8px;
 			font-size: 16px;
 			width: 100%;
-			max-width: 300px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
 		}
 	}
 
 	.character-list {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 20px;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		grid-gap: 20px;
 
 		.character-card {
-			background-color: #f0f0f0;
+			background-color: #f9f9f9;
 			padding: 20px;
 			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(155, 155, 155, 0.288);
 
-			h2 {
-				margin-top: 0;
-			}
-
-			button {
-				background-color: #007bff;
-				color: #fff;
-				padding: 10px 20px;
-				border: none;
+			.detail-link {
+				display: flex;
+				margin-top: 10px;
+				text-decoration: none;
+				color: #007bff;
+				background-color: #fff;
+				border: 1px solid #007bff;
 				border-radius: 4px;
-				cursor: pointer;
+				padding: 8px 16px;
 				transition: background-color 0.3s ease;
 
 				&:hover {
-					background-color: #0056b3;
+					background-color: #007bff;
+					color: #fff;
 				}
 			}
 		}
 	}
 
 	.pagination {
-		overflow-x: auto; // добавим горизонтальную прокрутку
-		white-space: nowrap; // чтобы кнопки были в одной строке
-		text-align: center;
+		display: flex;
 		margin-top: 20px;
+		overflow-x: scroll;
+		scroll-behavior: smooth;
 
 		button {
 			background-color: #007bff;
 			color: #fff;
-			padding: 10px 15px;
 			border: none;
+			padding: 8px 16px;
+			margin-right: 5px;
 			border-radius: 4px;
 			cursor: pointer;
-			margin: 0 3px;
-			transition: background-color 0.3s ease;
 
 			&:hover {
 				background-color: #0056b3;
 			}
-
-			&:disabled {
-				opacity: 0.5;
-				cursor: not-allowed;
-			}
 		}
 	}
 
-	.modal {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0, 0, 0, 0.5);
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	.CharacterDetailPage {
+		margin-top: 20px;
 
-		.modal-content {
-			background-color: #fff;
-			padding: 20px;
+		h2 {
+			margin-bottom: 10px;
+		}
+
+		p {
+			margin: 5px 0;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
 			border-radius: 8px;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-			h2 {
-				margin-top: 0;
-			}
-
-			img {
-				max-width: 100%;
-				border-radius: 8px;
-				margin-bottom: 10px;
-			}
-
-			p {
-				margin: 0;
-			}
-
-			button {
-				background-color: #007bff;
-				color: #fff;
-				padding: 10px 20px;
-				border: none;
-				border-radius: 4px;
-				cursor: pointer;
-
-				&:hover {
-					background-color: #0056b3;
-				}
-			}
+			margin-top: 10px;
 		}
 	}
 }

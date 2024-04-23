@@ -1,26 +1,25 @@
 import React from 'react';
-import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-export default function CharacterDetailPage({ characters }) {
+const CharacterDetailPage = ({ characters }) => {
 	const { id } = useParams();
-	const navigate = useNavigate();
-
-	const character = characters.find(char => char.id === +id);
+	const character = characters.find(char => char.id === parseInt(id));
 
 	if (!character) {
-		return <Navigate to="/" />;
+		return <p>Персонаж не найден</p>;
 	}
-
-	const handleGoBack = () => {
-		navigate(-1);
-	};
 
 	return (
 		<div>
-			<h2>{character.name}</h2>
-			<p>Пол: {character.gender}</p>
+			<h2>Имя: {character.name}</h2>
+			<p>Статус: {character.status}</p>
 			<p>Вид: {character.species}</p>
-			<button onClick={handleGoBack}>Назад</button>
+			<p>Пол: {character.gender}</p>
+			<p>Место рождения: {character.origin.name}</p>
+			<p>Местоположение: {character.location.name}</p>
+			<img src={character.image} alt={character.name} />
 		</div>
 	);
-}
+};
+
+export default CharacterDetailPage;
