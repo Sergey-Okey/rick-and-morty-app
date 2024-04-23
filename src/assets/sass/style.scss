@@ -15,7 +15,7 @@
 			padding: 8px;
 			font-size: 16px;
 			width: 100%;
-			border: 1px solid #ccc;
+			border: 1px solid #525252;
 			border-radius: 4px;
 			box-sizing: border-box;
 		}
@@ -27,24 +27,25 @@
 		grid-gap: 20px;
 
 		.character-card {
-			background-color: #f9f9f9;
+			background-color: #ffffff;
 			padding: 20px;
 			border-radius: 8px;
 			box-shadow: 0 0 10px rgba(155, 155, 155, 0.288);
+			border: 1px solid #525252;
+
 
 			.detail-link {
 				display: flex;
 				margin-top: 10px;
 				text-decoration: none;
-				color: #007bff;
-				background-color: #fff;
-				border: 1px solid #007bff;
+				color: #ffffff;
+				background-color: #0059ff;
 				border-radius: 4px;
 				padding: 8px 16px;
 				transition: background-color 0.3s ease;
 
 				&:hover {
-					background-color: #007bff;
+					background-color: #013d7e;
 					color: #fff;
 				}
 			}
@@ -74,6 +75,10 @@
 
 	.CharacterDetailPage {
 		margin-top: 20px;
+
+		.charaster-content {
+			border: 1px solid #525252;
+		}
 
 		h2 {
 			margin-bottom: 10px;

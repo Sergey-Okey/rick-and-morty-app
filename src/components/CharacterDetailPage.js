@@ -10,7 +10,7 @@ const CharacterDetailPage = ({ characters }) => {
 	}
 
 	return (
-		<div>
+		<div className='charaster-content'>
 			<h2>Имя: {character.name}</h2>
 			<p>Статус: {character.status}</p>
 			<p>Вид: {character.species}</p>
