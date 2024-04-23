@@ -65,9 +65,6 @@
 .App .CharacterDetailPage {
   margin-top: 20px;
 }
-.App .CharacterDetailPage .charaster-content {
-  border: 1px solid #525252;
-}
 .App .CharacterDetailPage h2 {
   margin-bottom: 10px;
 }
